@@ -1,0 +1,12 @@
+E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Services.Auth\bin\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Services.Auth.deps.json
+E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Services.Auth\bin\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Services.Auth.dll
+E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Services.Auth\bin\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Services.Auth.pdb
+E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Services.Auth\bin\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Data.DataProvider.dll
+E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Services.Auth\bin\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Data.DataProvider.pdb
+E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Services.Auth\obj\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Services.Auth.csprojAssemblyReference.cache
+E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Services.Auth\obj\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Services.Auth.AssemblyInfoInputs.cache
+E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Services.Auth\obj\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Services.Auth.AssemblyInfo.cs
+E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Services.Auth\obj\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Services.Auth.csproj.CoreCompileInputs.cache
+E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Services.Auth\obj\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Services.Auth.csproj.CopyComplete
+E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Services.Auth\obj\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Services.Auth.dll
+E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Services.Auth\obj\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Services.Auth.pdb
