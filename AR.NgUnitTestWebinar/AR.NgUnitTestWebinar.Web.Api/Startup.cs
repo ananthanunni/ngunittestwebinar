@@ -25,6 +25,16 @@ namespace AR.NgUnitTestWebinar.Web.Api
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddControllers();
+      services.AddCors(options =>
+      {
+        options.AddPolicy(name: "AllowAnyOrigin",
+          builder =>
+          {
+            builder.AllowAnyOrigin();
+            builder.AllowAnyHeader();
+            builder.AllowAnyMethod();
+          });
+      });
 
       // Register repositories
       var dataFileDirectory = Path.Combine(Environment.ContentRootPath, "Data");
@@ -45,6 +55,7 @@ namespace AR.NgUnitTestWebinar.Web.Api
       app.UseHttpsRedirection();
 
       app.UseRouting();
+      app.UseCors("AllowAnyOrigin");
 
       app.UseAuthorization();
 
