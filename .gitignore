@@ -46,3 +46,5 @@ testem.log
 Thumbs.db
 AR.NgUnitTestWebinar/AR.NgUnitTestWebinar.Web.Api/bin/*
 AR.NgUnitTestWebinar/AR.NgUnitTestWebinar.Web.Api/obj/*
+AR.NgUnitTestWebinar/.vs/AR.NgUnitTestWebinar/v16/.suo
+AR.NgUnitTestWebinar/AR.NgUnitTestWebinar.Web.Api/AR.NgUnitTestWebinar.Web.Api.csproj.user
