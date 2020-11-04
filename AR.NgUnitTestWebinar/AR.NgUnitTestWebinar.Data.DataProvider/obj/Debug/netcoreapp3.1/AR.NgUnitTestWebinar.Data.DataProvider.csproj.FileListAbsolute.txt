@@ -1,9 +1,0 @@
-E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Data.DataProvider\bin\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Data.DataProvider.deps.json
-E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Data.DataProvider\bin\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Data.DataProvider.dll
-E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Data.DataProvider\obj\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Data.DataProvider.csprojAssemblyReference.cache
-E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Data.DataProvider\obj\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Data.DataProvider.AssemblyInfoInputs.cache
-E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Data.DataProvider\obj\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Data.DataProvider.AssemblyInfo.cs
-E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Data.DataProvider\bin\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Data.DataProvider.pdb
-E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Data.DataProvider\obj\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Data.DataProvider.csproj.CoreCompileInputs.cache
-E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Data.DataProvider\obj\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Data.DataProvider.dll
-E:\Study\Sessions\DotNetWhatsApp\20201101_NGUnitTest\codebase\ngunittestwebinar\AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Data.DataProvider\obj\Debug\netcoreapp3.1\AR.NgUnitTestWebinar.Data.DataProvider.pdb

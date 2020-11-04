@@ -1,4 +1,5 @@
 using System.IO;
+using AR.NgUnitTestWebinar.Data.DataProvider.Colors;
 using AR.NgUnitTestWebinar.Data.DataProvider.Users;
 using AR.NgUnitTestWebinar.Services.Auth;
 using Microsoft.AspNetCore.Builder;
@@ -39,9 +40,12 @@ namespace AR.NgUnitTestWebinar.Web.Api
       // Register repositories
       var dataFileDirectory = Path.Combine(Environment.ContentRootPath, "Data");
       services.AddTransient<IUserRepository>(sp => new UserRepository(Path.Combine(dataFileDirectory, "Users.json")));
+      services.AddTransient<IColorRepository>(sp =>
+        new ColorRepository(Path.Combine(dataFileDirectory, "Colors.json")));
 
       // Register serivces
       services.AddTransient<IAuthenticationService, AuthenticationService>();
+      services.AddTransient<IColorService, ColorService>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

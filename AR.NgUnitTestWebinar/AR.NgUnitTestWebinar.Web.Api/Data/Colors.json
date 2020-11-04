@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "name": "Cerulean",
+    "year": 2000,
+    "color": "#98B2D1",
+    "pantoneValue": "15-4020"
+  },
+  {
+    "id": 2,
+    "name": "Fuchsia rose",
+    "color": "#C74375",
+    "pantoneValue": "17-2031"
+  },
+  {
+    "id": 3,
+    "name": "True Red",
+    "color": "#BF1932",
+    "pantoneValue": "19-1664"
+  },
+  {
+    "id": 4,
+    "name": "Aqua Sky",
+    "color": "#7BC4C4",
+    "pantoneValue": "14-4811"
+  },
+  {
+    "id": 5,
+    "name": "Tigerlily",
+    "color": "#E2583E",
+    "pantoneValue": "17-1456"
+  },
+  {
+    "id": 6,
+    "name": "Blue Turquoise",
+    "color": "#53B0AE",
+    "pantoneValue": "15-5217"
+  }
+]

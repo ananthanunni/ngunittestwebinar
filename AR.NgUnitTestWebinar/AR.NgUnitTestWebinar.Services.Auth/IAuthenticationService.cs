@@ -5,6 +5,6 @@ namespace AR.NgUnitTestWebinar.Services.Auth
 {
   public interface IAuthenticationService
   {
-    Task<User> Authenticate(string userId, string password);
+    Task<UserEntity> Authenticate(string userId, string password);
   }
 }
