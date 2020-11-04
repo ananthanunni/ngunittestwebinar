@@ -22,6 +22,8 @@ namespace AR.NgUnitTestWebinar.Web.Api.Controllers
     {
       var name = await _authenticationService.Authenticate(credentials.UserId, credentials.Password);
 
+      await Task.Delay(3000);
+
       if (string.IsNullOrWhiteSpace(name))
         return Unauthorized();
 
