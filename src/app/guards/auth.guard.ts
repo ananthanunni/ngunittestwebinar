@@ -7,6 +7,7 @@ import {
   Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Constants } from '../utils/constants';
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +23,9 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    const hasToken = !!localStorage.getItem('currentuser');
+    const hasToken = !!localStorage.getItem(
+      Constants.authenticatedUserLocalStorageKey
+    );
 
     if (!hasToken) {
       this.router.navigate(['/login']);
