@@ -12,6 +12,16 @@ namespace AR.NgUnitTestWebinar.Services.Auth
       this._userRepository = userRepository;
     }
 
-    public async Task<User> Authenticate(string userId, string password) => await _userRepository.First(r => r.UserId == userId && r.Password == password);
+    public async Task<User> Authenticate(string userId, string password)
+    {
+      var user = await _userRepository.First(r => r.UserId == userId && r.Password == password)
+
+      if (user != null)
+      {
+        user.Password = null;
+      }
+
+      return user;
+    }
   }
 }
