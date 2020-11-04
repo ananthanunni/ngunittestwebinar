@@ -43,7 +43,10 @@ testem.log
 
 # System Files
 .DS_Store
-Thumbs.db
-AR.NgUnitTestWebinar/**/bin/*
-AR.NgUnitTestWebinar/**/obj/*
-AR.NgUnitTestWebinar/**/.suo
+
+# Visual Studio/.NET
+**/*.suo
+**/*.user
+**/bin
+**/obj
+**/packages
