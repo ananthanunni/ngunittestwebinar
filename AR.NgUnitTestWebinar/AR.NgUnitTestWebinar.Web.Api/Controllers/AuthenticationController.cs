@@ -21,9 +21,7 @@ namespace AR.NgUnitTestWebinar.Web.Api.Controllers
     public async Task<ActionResult<string>> Authenticate(AuthenticationRequest credentials)
     {
       var user = await _authenticationService.Authenticate(credentials.UserId, credentials.Password);
-
-      await Task.Delay(3000);
-
+      
       if (user == null)
         return Unauthorized();
 

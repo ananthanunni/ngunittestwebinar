@@ -1,9 +1,12 @@
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using AR.NgUnitTestWebinar.Data.DataProvider.Colors;
 using AR.NgUnitTestWebinar.Data.DataProvider.Users;
 using AR.NgUnitTestWebinar.Services.Auth;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -54,6 +57,16 @@ namespace AR.NgUnitTestWebinar.Web.Api
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
+      }
+      
+      if (env.IsDevelopment())
+      {
+        app.Use(async (context, next) =>
+        {
+          await Task.Delay(3000);
+          await next.Invoke();
+        });
+
       }
 
       app.UseHttpsRedirection();
