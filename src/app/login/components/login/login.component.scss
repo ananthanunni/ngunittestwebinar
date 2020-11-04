@@ -1,0 +1,23 @@
+:host {
+  max-width: 360px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  width: 420px;
+  margin: 12px auto;
+  justify-content: flex-end;
+
+  input {
+    padding: 6px;
+    margin-left: 6px;
+    width: 300px;
+  }
+}

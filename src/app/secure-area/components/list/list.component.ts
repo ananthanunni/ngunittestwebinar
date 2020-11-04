@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, ChangeDetectionStrategy, Inject } from '@angular/core';
 
 @Component({
   selector: 'ar-list',
@@ -6,8 +7,12 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListComponent implements OnInit {
-  constructor() {}
+export class ListComponent {
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    this.initialize();
+  }
 
-  ngOnInit(): void {}
+  private initialize(): void {
+    this.document.title = 'Secure Area';
+  }
 }

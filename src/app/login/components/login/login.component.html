@@ -1,1 +1,23 @@
 <h1>Login</h1>
+<form [formGroup]="loginForm">
+  <div class="field">
+    <label for="userId">User ID:</label>
+    <input formControlName="userId" name="userId" type="userId" />
+  </div>
+  <div class="field">
+    <label for="password">Password:</label>
+    <input formControlName="password" name="password" type="password" />
+  </div>
+  <div class="actions">
+    <button mat-button color="default" (click)="onClearClicked()">Clear</button>
+    <button
+      mat-raised-button
+      color="accent"
+      [disabled]="loginForm.invalid || isLoggingIn ? true : null"
+      (click)="onLoginClicked()"
+    >
+      <span *ngIf="isLoggingIn; else login">Logging in...</span>
+      <ng-template #login>Login</ng-template>
+    </button>
+  </div>
+</form>

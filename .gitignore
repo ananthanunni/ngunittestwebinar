@@ -44,7 +44,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-AR.NgUnitTestWebinar/AR.NgUnitTestWebinar.Web.Api/bin/*
-AR.NgUnitTestWebinar/AR.NgUnitTestWebinar.Web.Api/obj/*
-AR.NgUnitTestWebinar/.vs/AR.NgUnitTestWebinar/v16/.suo
-AR.NgUnitTestWebinar/AR.NgUnitTestWebinar.Web.Api/AR.NgUnitTestWebinar.Web.Api.csproj.user
+AR.NgUnitTestWebinar/**/bin/*
+AR.NgUnitTestWebinar/**/obj/*
+AR.NgUnitTestWebinar/**/.suo
