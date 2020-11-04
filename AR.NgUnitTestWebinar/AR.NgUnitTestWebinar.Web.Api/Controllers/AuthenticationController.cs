@@ -20,14 +20,14 @@ namespace AR.NgUnitTestWebinar.Web.Api.Controllers
     [Route("authenticate")]
     public async Task<ActionResult<string>> Authenticate(AuthenticationRequest credentials)
     {
-      var name = await _authenticationService.Authenticate(credentials.UserId, credentials.Password);
+      var user = await _authenticationService.Authenticate(credentials.UserId, credentials.Password);
 
       await Task.Delay(3000);
 
-      if (string.IsNullOrWhiteSpace(name))
+      if (user == null)
         return Unauthorized();
 
-      return Ok(name);
+      return Ok(user);
     }
   }
 }
