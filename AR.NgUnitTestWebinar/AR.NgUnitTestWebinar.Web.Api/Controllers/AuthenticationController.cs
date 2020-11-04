@@ -18,7 +18,7 @@ namespace AR.NgUnitTestWebinar.Web.Api.Controllers
 
     [HttpPost]
     [Route("authenticate")]
-    public async Task<ActionResult<string>> Authenticate(SignInRequest credentials)
+    public async Task<ActionResult<string>> Authenticate(AuthenticationRequest credentials)
     {
       var name = await _authenticationService.Authenticate(credentials.UserId, credentials.Password);
 
