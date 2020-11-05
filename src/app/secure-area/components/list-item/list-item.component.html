@@ -1,1 +1,12 @@
-<p>list-item works!</p>
+<div
+  class="container"
+  *ngIf="color"
+  [ngStyle]="{ 'border-color': color.color }"
+>
+  <h1>{{ color.color }}</h1>
+  <div>
+    <small>Pantone: {{ color.pantoneValue }}</small>
+    <button (click)="select.emit(color)">Apply</button>
+  </div>
+  <div class="color-preview" [ngStyle]="{ background: color.color }"></div>
+</div>

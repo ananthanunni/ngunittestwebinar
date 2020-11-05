@@ -35,7 +35,18 @@ export class LoginComponent {
     this.initialize();
   }
 
-  onLoginClicked(): void {
+  onClearClicked(): void {
+    this.loginForm.setValue({
+      userId: '',
+      password: '',
+    });
+  }
+
+  onLoginButtonClicked(): void {
+    this.authenticate();
+  }
+
+  authenticate(): void {
     this.isLoggingIn = true;
     this.changeDetector.markForCheck();
 
@@ -58,13 +69,6 @@ export class LoginComponent {
           this.snackbar.open(e, '', Constants.snackBarErrorConfig);
         },
       });
-  }
-
-  onClearClicked(): void {
-    this.loginForm.setValue({
-      userId: '',
-      password: '',
-    });
   }
 
   private initialize(): void {

@@ -1,5 +1,5 @@
 <h1>Login</h1>
-<form [formGroup]="loginForm">
+<form [formGroup]="loginForm" #form>
   <div class="field">
     <label for="userId">User ID:</label>
     <input formControlName="userId" name="userId" type="userId" />
@@ -9,12 +9,15 @@
     <input formControlName="password" name="password" type="password" />
   </div>
   <div class="actions">
-    <button mat-button color="default" (click)="onClearClicked()">Clear</button>
+    <button type="button" mat-button color="default" (click)="onClearClicked()">
+      Clear
+    </button>
     <button
+      type="submit"
       mat-raised-button
       color="accent"
       [disabled]="loginForm.invalid || isLoggingIn ? true : null"
-      (click)="onLoginClicked()"
+      (click)="onLoginButtonClicked()"
     >
       <span *ngIf="isLoggingIn; else login">Logging in...</span>
       <ng-template #login>Login</ng-template>

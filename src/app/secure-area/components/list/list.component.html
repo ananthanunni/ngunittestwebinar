@@ -1,1 +1,6 @@
-<p>list works!</p>
+<h1>Colors</h1>
+<div *ngIf="isLoading">Loading...</div>
+<div class="list" *ngIf="colors$ | async as colors">
+  <ar-list-item *ngFor="let item of colors" [color]="item"></ar-list-item>
+</div>
+<ng-template #loading> Loading... </ng-template>

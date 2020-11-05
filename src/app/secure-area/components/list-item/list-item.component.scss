@@ -1,0 +1,17 @@
+.container {
+  background: #222;
+  padding: 6px;
+  border-radius: 6px;
+  position: relative;
+  border: 1px solid;
+
+  button {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+  }
+}
+
+.color-preview {
+  height: 18px;
+}
