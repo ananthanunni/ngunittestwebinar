@@ -50,3 +50,4 @@ testem.log
 **/bin
 **/obj
 **/packages
+**/.vs
