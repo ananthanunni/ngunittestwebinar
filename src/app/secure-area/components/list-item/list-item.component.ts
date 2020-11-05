@@ -15,7 +15,7 @@ import { Color } from '../../services/color';
 })
 export class ListItemComponent {
   @Input() color: Color;
-  @Output() select = new EventEmitter<Color>();
+  @Input() selectedColor: Color;
 
-  constructor() {}
+  @Output() select = new EventEmitter<Color>();
 }

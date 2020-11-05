@@ -6,7 +6,9 @@
   <h1>{{ color.color }}</h1>
   <div>
     <small>Pantone: {{ color.pantoneValue }}</small>
-    <button (click)="select.emit(color)">Apply</button>
+    <button *ngIf="color !== selectedColor" (click)="select.emit(color)">
+      Apply
+    </button>
   </div>
   <div class="color-preview" [ngStyle]="{ background: color.color }"></div>
 </div>

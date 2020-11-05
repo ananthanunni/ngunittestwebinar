@@ -20,6 +20,7 @@ import { ColorService } from '../../services/color.service';
 export class ListComponent implements OnInit {
   isLoading: boolean;
   colors$: Observable<Color[]>;
+  selectedColor: Color;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
