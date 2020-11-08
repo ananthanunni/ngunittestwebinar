@@ -5,17 +5,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-import { throwError } from 'rxjs';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
-
-  let userIdInput: DebugElement;
-  let passwordInput: DebugElement;
-  let loginButton: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -34,11 +28,6 @@ describe('LoginComponent', () => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-
-    const inputFields = fixture.debugElement.queryAll(By.css('input'));
-    userIdInput = inputFields[0];
-    passwordInput = inputFields[1];
-    loginButton = fixture.debugElement.query(By.css('button[type=submit]'));
   });
 
   it('should create', () => {
@@ -46,24 +35,31 @@ describe('LoginComponent', () => {
   });
 
   describe('Validate login button disabled', () => {
-    it('should not enable login button if user id is empty', () => {
+    it('should not enable login button if user id is empty', async () => {
       component.loginForm.controls.userId.setValue('');
       component.loginForm.controls.password.setValue('nonemptypassword');
 
-      userIdInput.triggerEventHandler('change', {});
-      passwordInput.triggerEventHandler('change', {});
+      component.loginForm.updateValueAndValidity();
+      fixture.detectChanges();
+      await fixture.whenRenderingDone();
 
-      expect(loginButton.nativeElement.disabled).toBeTruthy();
+      const loginButton = fixture.debugElement.query(
+        By.css('button[type=submit]')
+      );
+      expect(loginButton.attributes.disabled).toBeTruthy();
     });
 
-    it('should not enable login button if password is empty', () => {
+    it('should not enable login button if password is empty', async () => {
       component.loginForm.controls.userId.setValue('validusername');
       component.loginForm.controls.password.setValue('');
 
-      userIdInput.triggerEventHandler('change', {});
-      passwordInput.triggerEventHandler('change', {});
+      component.loginForm.updateValueAndValidity();
+      fixture.detectChanges();
 
-      expect(loginButton.nativeElement.disabled).toBeTruthy();
+      const loginButton = fixture.debugElement.query(
+        By.css('button[type=submit]')
+      );
+      expect(loginButton.attributes.disabled).toBeTruthy();
     });
 
     it('should enable login button if fields have value', async () => {
@@ -71,8 +67,11 @@ describe('LoginComponent', () => {
       component.loginForm.controls.password.setValue('nonemptypassword');
 
       component.loginForm.updateValueAndValidity();
-
-      expect(loginButton.nativeElement.attributes.disabled).toBeTruthy();
+      fixture.detectChanges();
+      const loginButton = fixture.debugElement.query(
+        By.css('button[type=submit]')
+      );
+      expect(loginButton.attributes.disabled).toBeTruthy();
     });
   });
 
@@ -84,7 +83,9 @@ describe('LoginComponent', () => {
 
     component.loginForm.controls.userId.setValue('validusername');
     component.loginForm.controls.password.setValue('nonemptypassword');
-
+    const loginButton = fixture.debugElement.query(
+      By.css('button[type=submit]')
+    );
     loginButton.triggerEventHandler('click', {});
 
     expect(serviceSpy).toHaveBeenCalledWith({
