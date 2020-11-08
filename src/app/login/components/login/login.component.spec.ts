@@ -6,10 +6,16 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { throwError } from 'rxjs';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
+
+  let userIdInput: DebugElement;
+  let passwordInput: DebugElement;
+  let loginButton: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -18,6 +24,7 @@ describe('LoginComponent', () => {
         ReactiveFormsModule,
         RouterTestingModule,
         MatSnackBarModule,
+        NoopAnimationsModule,
       ],
       declarations: [LoginComponent],
     }).compileComponents();
@@ -27,6 +34,11 @@ describe('LoginComponent', () => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+    const inputFields = fixture.debugElement.queryAll(By.css('input'));
+    userIdInput = inputFields[0];
+    passwordInput = inputFields[1];
+    loginButton = fixture.debugElement.query(By.css('button[type=submit]'));
   });
 
   it('should create', () => {
@@ -34,20 +46,9 @@ describe('LoginComponent', () => {
   });
 
   describe('Validate login button disabled', () => {
-    let userIdInput: DebugElement;
-    let passwordInput: DebugElement;
-    let loginButton: DebugElement;
-
-    beforeEach(() => {
-      const inputFields = fixture.debugElement.queryAll(By.css('input'));
-      userIdInput = inputFields[0];
-      passwordInput = inputFields[1];
-      loginButton = fixture.debugElement.query(By.css('button[type=submit]'));
-    });
-
     it('should not enable login button if user id is empty', () => {
-      userIdInput.nativeElement.value = '';
-      passwordInput.nativeElement.value = 'nonemptypassword';
+      component.loginForm.controls.userId.setValue('');
+      component.loginForm.controls.password.setValue('nonemptypassword');
 
       userIdInput.triggerEventHandler('change', {});
       passwordInput.triggerEventHandler('change', {});
@@ -56,8 +57,8 @@ describe('LoginComponent', () => {
     });
 
     it('should not enable login button if password is empty', () => {
-      userIdInput.nativeElement.value = 'validusername';
-      passwordInput.nativeElement.value = '';
+      component.loginForm.controls.userId.setValue('validusername');
+      component.loginForm.controls.password.setValue('');
 
       userIdInput.triggerEventHandler('change', {});
       passwordInput.triggerEventHandler('change', {});
@@ -66,18 +67,29 @@ describe('LoginComponent', () => {
     });
 
     it('should enable login button if fields have value', async () => {
-      userIdInput.nativeElement.value = 'validusername';
-      passwordInput.nativeElement.value = 'validpassword';
-
-      userIdInput.triggerEventHandler('change', {});
-      passwordInput.triggerEventHandler('change', {});
+      component.loginForm.controls.userId.setValue('validusername');
+      component.loginForm.controls.password.setValue('nonemptypassword');
 
       component.loginForm.updateValueAndValidity();
 
-      fixture.detectChanges();
-      await fixture.whenStable();
+      expect(loginButton.nativeElement.attributes.disabled).toBeTruthy();
+    });
+  });
 
-      expect(loginButton.nativeElement.disabled).toBeTruthy();
+  it('should call validate api with correct values', () => {
+    const serviceSpy = spyOn(
+      component['authenticationService'],
+      'authenticate$'
+    );
+
+    component.loginForm.controls.userId.setValue('validusername');
+    component.loginForm.controls.password.setValue('nonemptypassword');
+
+    loginButton.triggerEventHandler('click', {});
+
+    expect(serviceSpy).toHaveBeenCalledWith({
+      userId: 'validusername',
+      password: 'nonemptypassword',
     });
   });
 });
