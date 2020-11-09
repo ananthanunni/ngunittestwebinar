@@ -47,7 +47,8 @@ testem.log
 # Visual Studio/.NET
 **/*.suo
 **/*.user
-**/bin
 **/obj
 **/packages
 **/.vs
+**/AR.NgUnitTestWebinar.Data.DataProvider/bin
+**/AR.NgUnitTestWebinar.Services.Auth/bin
