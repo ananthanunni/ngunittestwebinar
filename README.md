@@ -1,30 +1,32 @@
-# Ngunittestwebinar
+# Angular Unit Test Webinar TestGround App
 
+This codebase contains both the back end API project and front end Angular project.
+
+## Back End API Project
+
+This is an ASP.NET Core 3.1 API application written in C#. This application provides two backend APIs required for our front end code. The project is located inside `AR.NgUnitTestWebinar` directory. I have excluded the assembly directory with `gitignore` which gets you access to the compiled binaries for the backend.
+
+## Front End Angular Project
+
+This is an Angular 10 application with two simple modules and minimum set of components and services, just to demonstrate writing unit tests for them.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
-## Development server
+## Running Application
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Run back end API project
+  - Navigate to the directory `AR.NgUnitTestWebinar\AR.NgUnitTestWebinar.Web.Api\bin\Debug\netcoreapp3.1`.
+  - Double click `AR.NgUnitTestWebinar.Web.Api.exe`. This should start a console running the backend API at these endpoints
+    - http://localhost:5000
+    - https://localhost:5001
+- Run front end Angular project
+  - run `ng serve` from within the Angular project directory. Angular code will begin to compile and start running at `http://localhost:4200`. This app will communicate with the backend API we already started in previous step.
+  - Browse to the URL and the app should display a login screen. Enter `ananthan` as the user ID and `password1` as password. Try with other credentials to see how incorrect login is handled.
+  - TIP: Keep your browser network tab open and see the XHR traffic. Familialrize with the two API endpoints (`login` and `colors`) and the data being sent and received. Just enough code to write tests on.
 
-## Code scaffolding
+## Running Angular Unit Tests
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- `ng test` runs begins Angular unit tests to execute.
+  - add `--prod = true` to use production build and run tests on it.
+  - add `--code-coverage=true` to get a code coverage report in HTML. This will be created in Angular application root directory inside a new directory.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-www.bleed6.com
-Sourced by Ananthan Unni
+www.bleed6.com | Ananthan Unni
