@@ -16,7 +16,7 @@
       type="submit"
       mat-raised-button
       color="accent"
-      [disabled]="loginForm.invalid || isLoggingIn ? true : null"
+      [attr.disabled]="loginForm.invalid || isLoggingIn ? true : null"
       (click)="onLoginButtonClicked()"
     >
       <span *ngIf="isLoggingIn; else login">Logging in...</span>
