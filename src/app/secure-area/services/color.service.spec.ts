@@ -26,21 +26,6 @@ describe('ColorService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return a valid set of colors successfully', () => {
-    const mockColors: Color[] = [
-      { color: '#ddd' } as Color,
-      { color: '#ccc' } as Color,
-    ];
-
-    service.getColors$().subscribe({
-      next: (result) => expect(result).toBe(mockColors),
-      error: () => fail(),
-    });
-
-    // Return a valid array with 200
-    controller.expectOne(HttpUtils.toApiUrl('colors')).flush(mockColors);
-  });
-
   it('should return valid results on success', () => {
     const mockResponse = [{ color: '#ddd' } as Color];
 
@@ -74,5 +59,11 @@ describe('ColorService', () => {
         expect(e).toBe('Oops! Something went wrong while loading colors.');
       },
     });
+
+    controller
+      .expectOne(HttpUtils.toApiUrl('colors'))
+      .error(new ErrorEvent('Service error'));
   });
+
+  afterEach(() => controller.verify());
 });
