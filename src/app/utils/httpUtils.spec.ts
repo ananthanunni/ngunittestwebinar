@@ -1,17 +1,13 @@
 import { HttpUtils } from './httpUtils';
 
 describe('HttpUtils tests', () => {
-  // TODO: Add a unit test to handle api path without leading slash
-  it('should not add extra slash if input alredy has a slash', () => {
-    expect(HttpUtils.toApiUrl('/someendpoint/someapi')).toBe(
-      `${HttpUtils.baseUrl}/someendpoint/someapi`
-    );
+  const expectedUrl = `${HttpUtils.baseUrl}/test/api`;
+
+  it('should handle urls with a slash prefixed url', () => {
+    expect(HttpUtils.toApiUrl('/test/api')).toBe(expectedUrl);
   });
 
-  // TODO: Add a unit test to handle api path WITH leading slash
-  it('should not add extra slash if input alredy has a slash', () => {
-    expect(HttpUtils.toApiUrl('someendpoint/someapi')).toBe(
-      `${HttpUtils.baseUrl}/someendpoint/someapi`
-    );
+  it('should handle urls without a slash prefixed url', () => {
+    expect(HttpUtils.toApiUrl('test/api')).toBe(expectedUrl);
   });
 });

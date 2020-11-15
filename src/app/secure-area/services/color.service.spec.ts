@@ -1,4 +1,4 @@
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import {
   HttpClientTestingModule,
   HttpTestingController,
@@ -41,7 +41,25 @@ describe('ColorService', () => {
     controller.expectOne(HttpUtils.toApiUrl('colors')).flush(mockColors);
   });
 
-  it('should handle error when colors api runs into an error', () => {
+  it('should return valid results on success', () => {
+    const mockResponse = [{ color: '#ddd' } as Color];
+
+    service.getColors$().subscribe({
+      next: (r: Color[]) => {
+        expect(r).toEqual(mockResponse);
+      },
+      error: () => fail(),
+    });
+
+    // const a = { a: 1 };
+    // const b = { a: 1 };
+    // expect(a).toBe(b)    //evals to false
+    // expect(a).toEqual(b);//evals to true
+
+    controller.expectOne(HttpUtils.toApiUrl('colors')).flush(mockResponse);
+  });
+
+  it('should log error when getting colors api call runs into an error', () => {
     const loggerSpy = spyOn(Logger, 'error');
 
     service.getColors$().subscribe({
@@ -56,17 +74,5 @@ describe('ColorService', () => {
         expect(e).toBe('Oops! Something went wrong while loading colors.');
       },
     });
-
-    // Return a valid array with 200
-    controller
-      .expectOne(HttpUtils.toApiUrl('colors'))
-      .error(new ErrorEvent('service error'));
-
-    // To simulate custom HTTP status codes
-    // controller.expectOne('').event(new HttpResponse({
-
-    // }))
   });
-
-  afterEach(() => controller.verify());
 });

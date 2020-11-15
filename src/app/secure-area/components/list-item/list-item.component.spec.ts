@@ -7,6 +7,12 @@ import { ListItemComponent } from './list-item.component';
 describe('ListItemComponent', () => {
   let component: ListItemComponent;
   let fixture: ComponentFixture<ListItemComponent>;
+  const mockColor: Color = {
+    color: '#ddd',
+    id: 1,
+    name: 'whatever',
+    pantoneValue: 'ac',
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -23,57 +29,40 @@ describe('ListItemComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should not display apply button if selected color is current color', () => {
-    const fakeColor: Color = {
-      color: '#fff',
-    } as Color;
-
-    component.color = fakeColor;
-    component.selectedColor = fakeColor;
-
-    // important! make the change detector run
+  it('should not display apply button if the selected color is the current color', () => {
+    component.color = mockColor;
+    component.selectedColor = mockColor;
     fixture.detectChanges();
 
-    // Find the button;
-    const applyButton = fixture.debugElement.query(By.css('button'));
-    expect(applyButton).toBeFalsy();
+    expect(fixture.debugElement.query(By.css('button'))).toBeFalsy();
   });
 
-  it('should display apply button if selected color is different', () => {
-    const fakeColor1: Color = {
+  it('should display apply button if the selected color is the current color', () => {
+    component.color = mockColor;
+    component.selectedColor = {
       color: '#fff',
+      name: 'anothercolor',
+      id: 2,
+      pantoneValue: 'xyz',
     } as Color;
-
-    const fakeColor2 = { color: '#ccc' } as Color;
-
-    component.color = fakeColor1;
-    component.selectedColor = fakeColor2;
-
-    // important! make the change detector run
     fixture.detectChanges();
 
-    // Find the button;
-    const applyButton = fixture.debugElement.query(By.css('button'));
-    expect(applyButton).toBeTruthy();
+    expect(fixture.debugElement.query(By.css('button'))).toBeTruthy();
   });
 
-  it('should display apply button if selected color is different', () => {
-    const eventSpy = spyOn(component.select, 'emit');
-
-    const fakeColor1: Color = {
+  it('should emit select event when clicking the button', () => {
+    const eventSpy = spyOn(component['select'], 'emit');
+    component.color = mockColor;
+    component.selectedColor = {
       color: '#fff',
+      name: 'anothercolor',
+      id: 2,
+      pantoneValue: 'xyz',
     } as Color;
-    const fakeColor2 = { color: '#ccc' } as Color;
-
-    component.color = fakeColor1;
-    component.selectedColor = fakeColor2;
-
-    // important! make the change detector run
     fixture.detectChanges();
-
-    // Find the button;
-    const applyButton = fixture.debugElement.query(By.css('button'));
-    applyButton.triggerEventHandler('click', {});
-    expect(eventSpy).toHaveBeenCalledWith(fakeColor1);
+    fixture.debugElement
+      .query(By.css('button'))
+      .triggerEventHandler('click', {});
+    expect(eventSpy).toHaveBeenCalledWith(mockColor);
   });
 });
