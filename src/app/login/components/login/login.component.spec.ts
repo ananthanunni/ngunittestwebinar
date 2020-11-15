@@ -1,4 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  fakeAsync,
+  flushMicrotasks,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { LoginComponent } from './login.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -30,4 +37,16 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // PLACEHOLDER UNIT TEST FOR ASYNC
+  it('attempt time travel', fakeAsync(() => {
+    let value = true;
+
+    setTimeout(() => {
+      value = false;
+      expect(value).toBeFalsy();
+    }, 3000);
+
+    tick(3500);
+  }));
 });
